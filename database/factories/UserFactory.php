@@ -25,10 +25,10 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'surname' => fake()->surname(),
-            'street_name'=> fake()->street_name(),
-            'zip_code'=> fake()->zip_code(),
-            'city'=> fake()->city(),
+            'surname' => fake()->name(),
+            'street_name'=> fake()->name(),
+            'zip_code'=> fake()->name(),
+            'city'=> fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

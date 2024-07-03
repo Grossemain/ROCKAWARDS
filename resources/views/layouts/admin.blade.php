@@ -32,7 +32,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                    <li><a href="/rockbands/">Rockbands</a></li>
+                        <li><a href="/dashboard/rockbands/">Rockbands</a></li>
+                        <li><a href="/dashboard/awards/">Awards</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -55,13 +56,13 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-                    
+
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item"  href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
+                                <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -73,20 +74,20 @@
             </div>
         </nav>
         <main class="py-4">
-        <div class="container-fluid text-center ">
-        @if (session()->has('message'))
-        <p class="alert alert-success">{{ session()->get('message') }}</p>
-        @endif
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-    </div>
+            <div class="container-fluid text-center ">
+                @if (session()->has('message'))
+                <p class="alert alert-success">{{ session()->get('message') }}</p>
+                @endif
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+            </div>
             @yield('content')
         </main>
     </div>

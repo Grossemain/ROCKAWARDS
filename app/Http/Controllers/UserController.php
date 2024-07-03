@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('user.edit', compact('user'));
     }
 
     /**

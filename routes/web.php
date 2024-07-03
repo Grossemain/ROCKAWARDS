@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RockbandController;
 use App\Http\Controllers\AwardController;
+use App\Http\Controllers\VoteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +23,4 @@ Route::resource('/rockbands', RockbandController::class)->except('edit','create'
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::resource('/dashboard/rockbands', RockbandController::class);
 Route::resource('/dashboard/awards', AwardController::class);
+Route::resource('/dashboard/votes', VoteController::class);

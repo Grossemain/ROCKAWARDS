@@ -27,6 +27,10 @@ class RockbandSeeder extends Seeder
                     'name_rockband' => 'The Who',
                     'id_user'=>'3',
                 ],
+                [
+                    'name_rockband' => 'Black Sabbath',
+                    'id_user'=>'3',
+                ],
             ]
 
         );

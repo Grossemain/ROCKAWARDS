@@ -9,11 +9,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rockband_award', function (Blueprint $table) {
-            $table->string('id_rockband', 50);
-            $table->string('id_award', 50);
-            $table->primary(['id_rockband', 'id_award']);
-            $table->foreign('id_rockband')->references('id_rockband')->on('rockbands')->onDelete('cascade');
-            $table->foreign('id_award')->references('id_award')->on('awards')->onDelete('cascade');
+            $table->string('rockband_id', 50);
+            $table->string('award_id', 50);
+            $table->primary(['rockband_id', 'award_id']);
+            $table->foreign('rockband_id')->references('rockband_id')->on('rockbands')->onDelete('cascade');
+            $table->foreign('award_id')->references('award_id')->on('awards')->onDelete('cascade');
             $table->timestamps();
         });
     }

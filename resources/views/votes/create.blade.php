@@ -24,8 +24,7 @@
                         <form method="POST" action="{{ route('votes.store') }}">
                             @csrf
                             <div class="form-group">
-                                <label for="name_vote">Nom du vote</label>
-                                <input type="text" name="name_vote" class="form-control" id="name_vote" required>
+                                <input type="hidden" name="id_user" class="form-control" id="id_user" required>
                             </div>
                             <div class="form-group">
                                 <label for="vote_award">Selectionne l'award</label>

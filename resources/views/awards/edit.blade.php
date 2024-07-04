@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="container py-5">
     <div class="row">
@@ -17,15 +17,21 @@
                             </ul>
                         </div>
                         @endif
-                       <!-- Formulaire -->
-                       <form method="POST" action="{{ route('awards.update', ['award' => $award->id]) }}">
+                        <!-- Formulaire -->
+                        <form method="POST" action="{{ route('awards.update', $award) }}">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
                                 <label for="name_award">Nom de l'award</label>
                                 <input type="text" name="name_award" class="form-control" value="{{ $award->name_award }}" required>
                             </div>
-
+                            @foreach ($rockbands as $rockband)
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="rockband{{ $rockband->id }}" value="{{ $rockband->id }}" id="rockband{{ $rockband->id }}"
+                                 @if ($rockband->award()->where('award_id', $award->id)->exists()) checked @endif >
+                                <label class="custom-control-label" for="rockband{{ $rockband->id }}">{{ $rockband->name_rockband }}</label>
+                            </div>
+                            @endforeach
                             <button type="submit" class="btn btn-primary rounded-pill shadow-sm mt-4">
                                 mettre a jour
                             </button>

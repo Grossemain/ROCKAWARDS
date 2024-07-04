@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="container-fluid text-center">
     <h1>Les <span class="text-primary">groupes de rock</span></h1>
@@ -17,6 +17,12 @@
                 <div class="card-body">
                     <h2 class="card-title text-primary">Nom du groupe: {{ $rockband->name_rockband }}</h2>
                     <p class="card-text">Created at: {{ $rockband->created_at }}</p>
+
+                    @foreach ($rockband->awards as $award)
+                    <ul>
+                        <li>{{ $award->name_award }}</li>
+                    </ul>
+                    @endforeach
                     <div class="container-fluid mt-4">
                         <div class="row mt-3">
                             <div class="col-md-6">

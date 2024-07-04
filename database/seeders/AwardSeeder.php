@@ -24,6 +24,9 @@ class AwardSeeder extends Seeder
                 [
                     'name_award' => 'Meilleur groupe de rock 1990',
                 ],
+                [
+                    'name_award' => 'Meilleur solo de guitare',
+                ],
             ]
 
         );

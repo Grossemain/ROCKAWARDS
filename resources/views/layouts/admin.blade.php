@@ -32,8 +32,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li><a href="/dashboard/rockbands/">Rockbands</a></li>
-                        <li><a href="/dashboard/awards/">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard/rockbands/">Rockbands</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard/awards/">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard/votes/">Votes</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

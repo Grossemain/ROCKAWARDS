@@ -18,7 +18,7 @@ class RockbandController extends Controller
      */
     public function index()
     {
-        $rockbands = Rockband::all();
+        $rockbands = Rockband::with('awards')->get();
         return view('rockbands.index', compact('rockbands'));
     }
 

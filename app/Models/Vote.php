@@ -22,12 +22,12 @@ class vote extends Model
 
     public function award()
     {
-        return $this->belongsTo(Award::class);
+        return $this->belongsTo(Award::class, 'award_id');
     }
 
     public function rockband()
     {
-        return $this->belongsTo(Rockband::class);
+        return $this->belongsTo(Rockband::class, 'rockband_id');
     }
 
     public function user()

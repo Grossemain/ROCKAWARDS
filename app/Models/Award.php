@@ -23,7 +23,7 @@ class award extends Model
 
     public function rockbands()
     {
-        return $this->belongsToMany(Rockband::class, 'rockband_award', 'id_award','id_rockband');
+        return $this->belongsToMany(Rockband::class, 'rockband_award');
     }
 
 }

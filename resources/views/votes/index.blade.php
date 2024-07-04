@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="container-fluid text-center">
     <h1>Les <span class="text-primary">votes</span></h1>
@@ -15,19 +15,11 @@
         <div class="col">
             <div class="card m-4 rounded-4">
                 <div class="card-body">
-                    <h2 class="card-title text-primary">Nom du vote: {{ $vote->name_vote }}</h2>
-                    <p class="card-text">Created at: {{ $vote->created_at }}</p>
-                    <div class="container-fluid mt-4">
+                    <h2 class="card-title text-primary">Nom du vote: {{ $vote->id_award }}</h2>
+                    <p class="card-text">Nombre de vote : {{ $vote->id_rockband}}</p>
+                    <div class="container-fluid mt-4"> 
                         <div class="row mt-3">
-                            <div class="col-md-6">
-                                <a href="{{ route('votes.edit', ['vote' => $vote->id]) }}" class="btn btn-primary btn-s mb-4 text-light">Editer</a>
-                            </div>
-                            <div class="col-md-6">
-                                <form action="{{ route('votes.destroy', ['vote' => $vote->id]) }}" method="POST" style="display: inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-s" type=" submit">Supprimer</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>

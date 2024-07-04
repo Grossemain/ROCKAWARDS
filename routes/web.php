@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RockbandController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\RockbandAwardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +25,4 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::resource('/dashboard/rockbands', RockbandController::class);
 Route::resource('/dashboard/awards', AwardController::class);
 Route::resource('/dashboard/votes', VoteController::class);
+Route::resource('/dashboard/rockbandsawards', RockbandAwardController::class);

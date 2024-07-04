@@ -7,7 +7,7 @@
             <span class="text-light">nombre d'awards: {{ $awards->count() }}</span>
         </div>
         <div class="container-fluid col-md-6 text-center mt-4">
-            <a href="{{ route('awards.create') }}" class="btn btn-primary text-light">Nouveau Award</a>
+            <a href="{{ route('rockbandsawards.create') }}" class="btn btn-primary text-light">Nouveau Award</a>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4 m-3 bg-primary rounded-3 mt-4">

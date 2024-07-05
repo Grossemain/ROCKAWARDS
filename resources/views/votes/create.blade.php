@@ -24,31 +24,27 @@
                         <form method="POST" action="{{ route('votes.store') }}">
                             @csrf
                             <div class="form-group">
-                                <input type="hidden" name="id_user" class="form-control" id="id_user" required>
+                                <input type="hidden" name="user_id" class="form-control" id="user_id" required>
                             </div>
                             <div class="form-group">
-                                <label for="vote_award">Selectionne l'award</label>
-                                <select name="vote_award" class="form-control" id="vote_award" required>
+                                <label for="award_id">Selectionne l'award</label>
+                                <select name="award_id" class="form-control" id="award_id" required>
                                     @foreach($awards as $award)
                                         <option value="{{ $award->id }}">{{ $award->name_award }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="id_rockband">selectionne ton groupe</label>
-                                <select name="id_rockband" class="form-control" id="id_rockband" required>
+                                <label for="rockband_id">selectionne ton groupe</label>
+                                <select name="rockband_id" class="form-control" id="rockband_id" required>
                                     @foreach($rockbands as $rockband)
                                         <option value="{{ $rockband->id }}">{{ $rockband->name_rockband }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group mb-4">
-                                <!--champs id_user invisible-->
-                                <input type="hidden" name="id_user" class="form-control" value="{{ request()->query('id_user') }}">
-                            </div>
-                            <div class="form-group mb-4">
-                                <!--champs id_award invisible-->
-                                <input type="hidden" name="id_award" class="form-control" value="{{ $award->id }}">
+                                <!--champs user_id invisible-->
+                                <input type="hidden" name="user_id" class="form-control" value="{{ request()->query('user_id') }}">
                             </div>
 
                             <button type="submit" class="btn btn-primary rounded-pill shadow-sm mt-4">

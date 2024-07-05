@@ -28,7 +28,7 @@
                                 <input type="text" name="name_award" class="form-control" id="name_award" required>
                             </div>
                             <div class="form-group">
-                                <input type="hidden" name="id_award" class="form-control" id="id_award" value="{{ request()->query('id_award') }}">
+                                <input type="hidden" name="award_id" class="form-control" id="award_id" value="{{ request()->query('award_id') }}">
                             </div>
                             <div class="form-group">
                                 <fieldset>
@@ -36,7 +36,7 @@
                                     <div>
                                         @foreach($rockbands as $rockband)
                                         <input type="checkbox" name="name_rockband{{ $rockband->id }}" id="name_rockband" value="{{ $rockband->id }}" autocomplete="off">
-                                        <label for="id_rockband">{{ $rockband->name_rockband }}</label><br>
+                                        <label for="rockband_id">{{ $rockband->name_rockband }}</label><br>
                                         @endforeach
                                     </div>
                                 </fieldset>

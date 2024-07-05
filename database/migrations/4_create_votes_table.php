@@ -13,13 +13,9 @@ return new class extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id()->primary();
-            $table->string('vote_award', 50);
-            $table->string('id_award', 50);
-            $table->string('id_rockband', 50);
-            $table->string('id_user', 50)->unique();
-            $table->foreign('id_award')->references('id_award')->on('awards')->onDelete('cascade');
-            $table->foreign('id_rockband')->references('id_rockband')->on('rockbands')->onDelete('cascade');
-            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreignId('award_id')->constrained()->onDelete('cascade');
+            $table->foreignId('rockband_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

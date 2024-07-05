@@ -3,21 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vote;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Rockband;
 use App\Models\Award;
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 
-class VoteController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $votes = Vote::with('award','rockband')->get();
-        // dd($votes);
-        return view('votes.index', compact('votes'));
+        if (Gate::denies('access_backoffice')) { // méthode 2 restriction accès : via Gate 
+            abort(403, 'Vous n\'êtes pas administrateur : accès refusé');
+            // autre syntaxe : if(!Gate::allows('access_backoffice'))
+        }
+
+        // je récupère toutes les données nécessaires
+        $awards = Award::all();
+        $rockbands = Rockband::all();
+        $users = User::with('role')->get();
+
+        // je renvoie la vue admin/index.blade.php en y injectant toutes ces données
+        return view('dashboard/index', [
+            'awards' => $awards,
+            'rockbands' => $rockbands,
+            'users' => $users
+        ]);
     }
 
     /**
@@ -25,9 +38,7 @@ class VoteController extends Controller
      */
     public function create()
     {
-        $rockbands = Rockband::All();
-        $awards = Award::All();
-        return view('votes.create', compact('rockbands', 'awards'));
+        //
     }
 
     /**
@@ -35,19 +46,7 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'rockband_id' => 'required|exists:rockbands,id',
-            'award_id' => 'required|exists:awards,id',
-
-        ]);
-
-        Vote::create([
-            'rockband_id' => $request->rockband_id,
-            'award_id' => $request->award_id,
-            'user_id' => Auth::user()->id,
-        ]);
-
-        return redirect()->route('votes.index')->with('success', 'A voté !');
+        //
     }
 
     /**

@@ -15,8 +15,8 @@
         <div class="col">
             <div class="card m-4 rounded-4">
                 <div class="card-body">
-                    <h2 class="card-title text-primary">Nom du vote: {{ $vote->id_award }}</h2>
-                    <p class="card-text">Nombre de vote : {{ $vote->id_rockband}}</p>
+                    <h2 class="card-title text-primary">Nom du vote: {{ $vote->award->name_award }}</h2>
+                    <p class="card-text">Nombre de vote : {{ $vote->rockband->name_rockband}}</p>
                     <div class="container-fluid mt-4"> 
                         <div class="row mt-3">
 

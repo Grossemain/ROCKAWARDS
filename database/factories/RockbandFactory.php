@@ -19,7 +19,7 @@ class RockbandFactory extends Factory
     {
         return [
             'name_rockband' => fake()->name(),
-            'id_user' => rand(1, User::count()),
+            'user_id' => rand(1, User::count()),
         ];
     }
 }

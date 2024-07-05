@@ -16,22 +16,19 @@ class VoteSeeder extends Seeder
         DB::table('votes')->insert(
             [
                 [
-                    'vote_award' => '1',
-                    'id_award'=>'1',
-                    'id_rockband'=>'1',
-                    'id_user'=>'1',
+                    'award_id'=>'1',
+                    'rockband_id_'=>'1',
+                    'user_id'=>'1',
                 ],
                 [
-                    'vote_award' => '2',
-                    'id_award'=>'2',
-                    'id_rockband'=>'2',
-                    'id_user'=>'2',
+                    'award_id'=>'2',
+                    'rockband_id_'=>'2',
+                    'user_id'=>'2',
                 ],
                 [
-                    'vote_award' => '4',
-                    'id_award'=>'4',
-                    'id_rockband'=>'4',
-                    'id_user'=>'4',
+                    'award_id'=>'4',
+                    'rockband_id_'=>'4',
+                    'user_id'=>'4',
                 ],
             ]
 

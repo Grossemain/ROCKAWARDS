@@ -15,7 +15,7 @@ class rockband extends Model
     protected $fillable = [
         'id', 
         'name_rockband',
-        'id_user',
+        'user_id',
     ];
 
     public function user()

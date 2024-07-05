@@ -28,8 +28,8 @@
                                 <input type="text" name="name_rockband" class="form-control" id="name_rockband" required>
                             </div>
                             <div class="form-group mb-4">
-                                <!--champs id_user invisible pour récupérer la valeur de id_user-->
-                                <input type="hidden" name="id_user" class="form-control" value="{{ request()->query('id_user') }}">
+                                <!--champs user_id invisible pour récupérer la valeur de user_id-->
+                                <input type="hidden" name="user_id" class="form-control" value="{{ request()->query('user_id') }}">
                             </div>
 
                             <button type="submit" class="btn btn-primary rounded-pill shadow-sm mt-4">

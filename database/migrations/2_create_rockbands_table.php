@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('rockbands', function (Blueprint $table) {
             $table->id()->primary();
             $table->string('name_rockband', 50);
-            $table->string('id_user', 50);
-            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

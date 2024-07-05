@@ -8,26 +8,25 @@ use App\Models\Award;
 use App\Models\Rockband;
 use App\Models\User;
 
-class vote extends Model
+class Vote extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'vote_award',
-        'id_award',
-        'id_rockband',
-        'id_user',
+        'award_id',
+        'rockband_id',
+        'user_id',
     ];
 
     public function award()
     {
-        return $this->belongsTo(Award::class, 'award_id');
+        return $this->belongsTo(Award::class);
     }
 
     public function rockband()
     {
-        return $this->belongsTo(Rockband::class, 'rockband_id');
+        return $this->belongsTo(Rockband::class);
     }
 
     public function user()

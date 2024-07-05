@@ -18,10 +18,9 @@ class VoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'vote_award' => fake()->name(),
-            'id_user' => rand(1, User::count()),
-            'id_award'=> fake()->name(),
-            'id_rockband'=> fake()->name(),
+            'user_id' => rand(1, User::count()),
+            'award_id'=> fake()->name(),
+            'rockband_id'=> fake()->name(),
         ];
     }
 }

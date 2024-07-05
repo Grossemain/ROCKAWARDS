@@ -17,19 +17,19 @@ class RockbandSeeder extends Seeder
             [
                 [
                     'name_rockband' => 'Led Zeppelin',
-                    'id_user'=>'3',
+                    'user_id'=>'3',
                 ],
                 [
                     'name_rockband' => 'The beatles',
-                    'id_user'=>'3',
+                    'user_id'=>'3',
                 ],
                 [
                     'name_rockband' => 'The Who',
-                    'id_user'=>'3',
+                    'user_id'=>'3',
                 ],
                 [
                     'name_rockband' => 'Black Sabbath',
-                    'id_user'=>'3',
+                    'user_id'=>'3',
                 ],
             ]
 

@@ -41,7 +41,7 @@ class RockbandController extends Controller
 
         $rockband = Rockband::create([
             'name_rockband' => $request->name_rockband,
-            'id_user' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
         ]);
 
         // DB::table('user')->insert([

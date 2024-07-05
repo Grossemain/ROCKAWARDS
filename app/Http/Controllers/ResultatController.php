@@ -3,25 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vote;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Rockband;
 use App\Models\Award;
+use App\Models\Rockband;
+use App\Models\Vote;
 
-class VoteController extends Controller
+class ResultatController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $votes = Vote::with('award','rockband')->get();
-        // dd($votes);
-        return view('votes.index', compact('votes'));
+        // je récupère toutes les données nécessaires
+        $awards = Award::all();
+        $rockbands = Rockband::all();
+        $votes = Vote::all();
+// dd($awards,$rockbands,$votes);
+        // je renvoie la vue resultat/index.blade.php en y injectant toutes ces données
+        return view('resultat/index', [
+            'awards' => $awards,
+            'rockbands' => $rockbands,
+            'votes' =>$votes,
+        ]);
     }
 
     /**
@@ -29,9 +32,7 @@ class VoteController extends Controller
      */
     public function create()
     {
-        $rockbands = Rockband::All();
-        $awards = Award::All();
-        return view('votes.create', compact('rockbands', 'awards'));
+        //
     }
 
     /**
@@ -39,19 +40,7 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'rockband_id' => 'required|exists:rockbands,id',
-            'award_id' => 'required|exists:awards,id',
-
-        ]);
-
-        Vote::create([
-            'rockband_id' => $request->rockband_id,
-            'award_id' => $request->award_id,
-            'user_id' => Auth::user()->id,
-        ]);
-
-        return redirect()->route('votes.index')->with('success', 'A voté !');
+        //
     }
 
     /**

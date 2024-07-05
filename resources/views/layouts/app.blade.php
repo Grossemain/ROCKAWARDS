@@ -18,7 +18,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-dark">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -31,10 +31,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if(auth()->user() && auth()->user()->isAdmin())
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item bg-primary"><a class="nav-link" href="/dashboard/">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/rockbands/">Rockbands</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/awards/">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/resultat/">Resultats</a></li>
                     </ul>
+                    @else
 
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="/rockbands/">Rockbands</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/awards/">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/resultat/">Resultats</a></li>
+                        <li class="nav-item bg-primary"><a class="nav-link" href="/votes/create">Voter</a></li>
+                    </ul>
+                    @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -55,13 +67,13 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-                    
+
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item"  href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
+                                <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">Mon compte</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -72,21 +84,21 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
-        <div class="container-fluid text-center ">
-        @if (session()->has('message'))
-        <p class="alert alert-success">{{ session()->get('message') }}</p>
-        @endif
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-    </div>
+        <main class="py-4 text-light">
+            <div class="container-fluid text-center ">
+                @if (session()->has('message'))
+                <p class="alert alert-success">{{ session()->get('message') }}</p>
+                @endif
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+            </div>
             @yield('content')
         </main>
     </div>

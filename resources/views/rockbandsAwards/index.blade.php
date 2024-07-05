@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
 <div class="container-fluid text-center">
     <h1>Les <span class="text-primary">Awards</span></h1>

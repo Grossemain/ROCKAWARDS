@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             RockbandSeeder::class,
             AwardSeeder::class,
-            // VoteSeeder::class,
+            VoteSeeder::class,
+            RockbandAwardSeeder::class,
         ]);
 
         User::factory()->create([

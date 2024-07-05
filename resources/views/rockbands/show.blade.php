@@ -11,6 +11,7 @@
                 <span>{{$rockband->id}}</span>
                 <div class="card-body text-center">
                     <h2 class="card-title">{{$rockband->name_rockband}}</h2>
+                    @if(auth()->user() && auth()->user()->isAdmin())
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
@@ -24,6 +25,8 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                    @endif
                 </div>
             </div>
         </div>

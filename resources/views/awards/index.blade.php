@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
 <div class="container-fluid text-center">
     <h1>Les <span class="text-primary">Awards</span></h1>
@@ -6,11 +6,14 @@
         <div class="w-100 p-2 rounded-pill border bg-primary text-center mt-4">
             <span class="text-light">nombre d'awards: {{ $awards->count() }}</span>
         </div>
+        @if(auth()->user() && auth()->user()->isAdmin())
         <div class="container-fluid col-md-6 text-center mt-4">
             <a href="{{ route('awards.create') }}" class="btn btn-primary text-light">Nouveau Award</a>
         </div>
+        @else
+        @endif
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 m-3 bg-primary rounded-3 mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-3 rounded-3 mt-4">
         @foreach ($awards as $award)
         <div class="col">
             <div class="card m-4 rounded-4">
@@ -21,6 +24,7 @@
                         <li>{{ $rockband->name_rockband }}</li>
                     </ul>
                     @endforeach
+                    @if(auth()->user() && auth()->user()->isAdmin())
                     <div class="container-fluid mt-4">
                         <div class="row mt-3">
                             <div class="col-md-6">
@@ -34,6 +38,8 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                    @endif
                 </div>
             </div>
         </div>

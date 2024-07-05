@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
 <div class="container-fluid text-center">
     <h1>Les <span class="text-primary">votes</span></h1>
@@ -16,7 +16,7 @@
             <div class="card m-4 rounded-4">
                 <div class="card-body">
                     <h2 class="card-title text-primary">Nom du vote: {{ $vote->award->name_award }}</h2>
-                    <p class="card-text">Nombre de vote : {{ $vote->rockband->name_rockband}}</p>
+                    <p class="card-text">Nombre de vote : {{ $vote->count()}}</p>
                     <div class="container-fluid mt-4"> 
                         <div class="row mt-3">
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Award;
 use App\Models\Rockband;
 use App\Models\Vote;
+use Illuminate\Support\Facades\Log;
 
 class ResultatController extends Controller
 {
@@ -15,10 +16,13 @@ class ResultatController extends Controller
     public function index()
     {
         // je récupère toutes les données nécessaires
-        $awards = Award::all();
+        $awards = Award::with('rockbands')->get();
         $rockbands = Rockband::all();
         $votes = Vote::all();
-// dd($awards,$rockbands,$votes);
+        //logger permet de debuger et afficher dans storage - logs supp laravel.log
+        // Log::debug(print_r($awards,true));
+        // logger($awards);
+
         // je renvoie la vue resultat/index.blade.php en y injectant toutes ces données
         return view('resultat/index', [
             'awards' => $awards,

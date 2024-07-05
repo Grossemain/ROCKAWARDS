@@ -67,18 +67,14 @@ Back-office - Laravel Online Store
                     <div class="card m-4 rounded-4">
                         <div class="card-body">
                             <h2 class="card-title text-primary">{{ $award->name_award }}</h2>
-                            <li>nombre de votes: {{ $votes->count() }}</li>
+                            
+                            <span>nombre de votes: {{ $votes->count() }}</span>
+                            <h3 class="text-center">Les nominés</h3>
                             @foreach ($award->rockbands as $rockband)
-                            <ul>
-                                <li>{{ $rockband->name_rockband}}</li>
-                            </ul>  
-                            <div class="container-fluid mt-4">
-                                <div class="row mt-3">
-                                    <div class="col-md-6">
-                                    <span class="text-primary text-center">Les nominés</br> {{ $rockband->name_rockband() }}</span>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <span class="text-primary text-center">nombre d'awards:</br>  {{ $awards->count() }}</span>
+                            <div class="container-fluid mt-1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                    <span class="text-primary text-center">{{ $rockband->name_rockband }}</span>
                                     </div>
                                 </div>
                             </div>

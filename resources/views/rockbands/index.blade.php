@@ -18,7 +18,7 @@
         <div class="col">
             <div class="card m-4 rounded-4">
                 <div class="card-body">
-                    <h2 class="card-title text-primary">{{ $rockband->name_rockband }}</h2>
+                    <h2 class="card-title text-primary"> <a class="text-decoration-none" href="{{ route('rockbands.show', ['rockband' => $rockband->id]) }}">{{ $rockband->name_rockband }}</a></h2>
 
                     @foreach ($rockband->awards as $award)
                     <ul>

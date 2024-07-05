@@ -1,14 +1,16 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid text-center">
-    <h1>{{$award->name_award}} <span class="text-primary"></span></h1>
+    <h1>Award du {{$award->name_award}} <span class="text-primary"></span></h1>
+    @if(auth()->user() && auth()->user()->isAdmin())
     <div class="container-fluid col-md-6 text-center mt-4">
         <a href="{{ route('awards.create') }}" class="btn btn-primary text-light">Nouveau Award</a>
     </div>
+    @else
+    @endif
     <div class="container-fluid col-md-6 text-center bg-tertiary rounded-3 mt-4 border border-3 border-primary">
         <div class="col">
             <div class="card m-4 rounded-4">
-                <span>{{$award->id}}</span>
                 <div class="card-body text-center">
                     <h2 class="card-title">{{$award->name_award}}</h2>
                     @if(auth()->user() && auth()->user()->isAdmin())
@@ -27,6 +29,15 @@
                     </div>
                     @else
                     @endif
+                    <h4>Les nominées sont : </h4>
+                    @foreach ($award->rockbands as $rockband)
+                    <ul>
+                        <li>{{ $rockband->name_rockband }}</li>
+                    </ul>
+                    @endforeach
+                    <div class="container-fluid col-md-6 text-center mt-4">
+                        <a href="/votes/create" class="btn btn-primary text-light">Voter</a>
+                    </div>
                 </div>
             </div>
         </div>
